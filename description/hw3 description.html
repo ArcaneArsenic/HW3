@@ -1,0 +1,523 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>hw3 description</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h2><a name="user-requirements" class="md-header-anchor"></a><span>User Requirements</span></h2><p><span>For this assignment, you will be implementing a Red-Black tree.  This tree is used for many situations, including functionality of the Linux operating system.  A red black tree is simply a binary search tree where each node has been colored either </span><strong><span>red</span></strong><span> or </span><strong><span>black</span></strong><span>.  With this restriction, no path to a leaf node is more than twice the height of another.  As such, the height of a red-black tree is </span><em><span>log n</span></em><span> where </span><em><span>n</span></em><span> is the number of nodes.  Therefore, operations on this tree will run in the worst case, </span><em><span>O(log n)</span></em><span>.  To maintain this scenario, a red-black tree must follow a set of rules/properties:</span></p><ol start='' ><li><span>Every node is colored either red or black</span></li><li><span>The root node is black</span></li><li><span>Every node that does not contain data (these are represented as NIL instead of null) is colored black</span></li><li><span>If a node is red, then both of its children must also be black</span></li><li><span>For each node, all paths from itself to descendant leaf nodes must contain the same number of black nodes (this can also be referred to as the black-height)</span></li></ol><p><span>Operations on a red-black tree are quite like the ones done on a normal binary tree.  They differ in cases where the properties above must be maintained.  The details of these operations are detailed below in the code requirements; however, I recommend looking at the illustrations in this </span><a href='http://www.stolerman.net/studies/cs521/red_black_trees.pdf'><span>resource</span></a><span>.  There is one small typo I have noticed in this resource: on page 1, where the tree is being corrected, for case 1, the second bullet should read “Color a’s grandparent (c) to red”.</span></p><h2><a name="starting-the-assignment" class="md-header-anchor"></a><span>Starting the Assignment</span></h2><p><span>Create a GitHub repository using </span><a href='https://classroom.github.com/a/IgMkLAaJ'><span>this URL</span></a><span>. This repository will contain a Visual Studio solution and a folder </span><strong><span>Data</span></strong><span> containing different word-rank-frequency files that we have used in lab so far. Finally, it contains a sample executable contained in a zip folder called </span><strong><span>hw4 exe.zip</span></strong><span>. </span></p><h2><a name="user-interface" class="md-header-anchor"></a><span>User Interface</span></h2><p><img src="clip_image001.png" referrerpolicy="no-referrer" alt="img"></p><p><span>The user interface mimics the NameLookup project from class.  There are three </span><strong><span>Buttons</span></strong><span>, each with a click event handler.  There are also three text boxes.  The rank and frequency text boxes are </span><strong><span>read only</span></strong><span>.  To make the UI more readable, increase the font size to 12 or 14pt font.  The form itself should not be able to be resized.</span></p><h2><a name="software-architecture" class="md-header-anchor"></a><span>Software Architecture</span></h2><p><img src="clip_image003.png" referrerpolicy="no-referrer" alt="img"></p><p><span>You do not need to use the same names as shown in the class diagram, as long as you follow the </span><a href='http://people.cs.ksu.edu/~rhowell/DataStructures/redirect/naming'><span>naming conventions</span></a><span> for CIS 300. You may add any </span><strong><span>private</span></strong><span> methods that you feel improve the code.  </span></p><h2><a name="coding-requirements" class="md-header-anchor"></a><span>Coding Requirements</span></h2><p><span>The </span><strong><span>NameEntry</span></strong><span> class is given.  Note that to implement the </span><strong><span>ITree</span></strong><span> class as described below, you must add using KansasStateUniversity.TreeViewer2; to the corresponding files.</span></p><h3><a name="the-rbtreenode-class" class="md-header-anchor"></a><span>The RBTreeNode Class</span></h3><p><span>This class represents a red black tree node.  This is very much like a normal binary tree node, with the addition of a </span><strong><span>Color</span></strong><span> property.  This class is a generic class (of type </span><em><span>T)</span></em><span> that implements the </span><strong><span>ITree</span></strong><span> interface, and where </span><em><span>T</span></em><span> implements </span><strong><span>IComparable.</span></strong><span> In addition to this class, the RBTreeNode.cs file should also contain a public enumerator called </span><strong><span>Color</span></strong><span> that contains </span><em><span>Red</span></em><span> and </span><em><span>Black.</span></em></p><h4><a name="properties" class="md-header-anchor"></a><span>Properties</span></h4><ul><li><p><code>public Color Color</code><span> </span></p><ul><li><span>A property to store this nodes color.  This type  is of the enumerator described above.</span></li></ul></li><li><p><code>public RBTreeNode&lt;T&gt; LeftChild</code></p><ul><li><span>Represents the left child node of this node.</span></li></ul></li><li><p><code>public  RBTreeNode&lt;T&gt; RightChild</code></p><ul><li><span>Represents the right child node of this node</span></li></ul></li><li><p><code>public RBTreeNode&lt;T&gt; Parent</code></p><ul><li><span>Represents this node&#39;s parent.</span></li></ul></li><li><p><code>public T Data</code></p><ul><li><span>The data/key stored at this node.</span></li></ul></li><li><p><code>public object Root</code></p><ul><li><span>This is a property that is used by the ITree interface.  It should only have a </span><em><span>getter</span></em><span> that returns </span><strong><span>this</span></strong><span>.</span></li></ul></li><li><p><code>public ITree[] Children</code></p><ul><li><span>This is a property that is used by the ITree interface.  It should only have a </span><em><span>getter</span></em><span> that returns an  array of </span><code>RBTreeNode&lt;T&gt;</code><span>&#39;s that has the LeftChild as the first  element and RightChild as the second element.</span></li></ul></li><li><p><code>public  bool IsEmpty</code></p><ul><li><span>This is a property that is used by the ITree interface.  It should only have a </span><em><span>getter</span></em><span> that returns whether or not the Data property equals the default value of T.  Be sure to use the </span><strong><span>Equals</span></strong><span> function of the Data property.</span></li></ul></li></ul><h4><a name="methods" class="md-header-anchor"></a><span>Methods</span></h4><ul><li><p><code>public RBTreeNode(T data, RBTreeNode&lt;T&gt; left, RBTreeNode&lt;T&gt; right)</code></p><ul><li><span>Public constructor that sets the Data, LeftChild, and RightChild properties.</span></li></ul></li><li><p><code>public RBTreeNode()</code></p><ul><li><span>Public constructor that sets the Color property to Black.  Note that this is from the enumerator described above...NOT the C# Color class.</span></li></ul></li><li><p><code>public override string ToString()</code></p><ul><li><span>Converts this node to a string and returns the result.  The string should be in the format </span><em><span>Color: Data</span></em></li></ul></li></ul><h3><a name="the-rbtree-class" class="md-header-anchor"></a><span>The RBTree Class</span></h3><p><span>This class represents a whole red black tree, storing its root.  This is a generic class (of type T) that implements the </span><strong><span>ITree</span></strong><span> interface and where </span><em><span>T</span></em><span> implements the </span><code>IComparable</code><span>and the </span><code>IComparable&lt;T&gt;</code><span>interfaces.</span></p><h4><a name="fields" class="md-header-anchor"></a><span>Fields</span></h4><ul><li><p><code>public static readonly RBTreeNode&lt;T&gt; NIL</code><span> </span></p><ul><li><span>This should be set to a new RBTreeNode using the default constructor.  This is a special node in the red black tree.  While we will still have </span><em><span>some</span></em><span> </span><strong><span>null</span></strong><span> nodes, we will use </span><strong><span>NIL</span></strong><span> to represent the children of all </span><em><span>leaves</span></em><span> of the tree.</span></li></ul></li></ul><h4><a name="properties-n95" class="md-header-anchor"></a><span>Properties</span></h4><ul><li><p><code>public RBTreeNode&lt;T&gt; Root</code></p><ul><li><span>This is the Root property used to store the root node of the tree.  It has a public </span><em><span>getter</span></em><span> and a private </span><em><span>setter</span></em><span>.</span></li></ul></li><li><p><code>object ITree.Root</code></p><ul><li><span>This is a property that is used by the ITree interface.  It should only have a </span><em><span>getter</span></em><span> that returns </span><strong><span>this</span></strong><span>.</span></li></ul></li><li><p><code>public ITree[] Children</code></p><ul><li><span>This is a property that is used by the ITree interface.  It should only have a </span><em><span>getter</span></em><span> that returns the root node&#39;s </span><strong><span>Children</span></strong><span>.</span></li></ul></li><li><p><code>public bool IsEmpty</code></p><ul><li><span>This is a property that is used by the ITree interface.  It should only have a </span><em><span>getter</span></em><span> that returns whether or not the root node is </span><strong><span>null</span></strong><span>.</span></li></ul></li></ul><h4><a name="methods-n117" class="md-header-anchor"></a><span>Methods</span></h4><p><em><span>Note that the methods described below are </span><strong><span>iterative</span></strong><span> unless otherwise noted.</span></em></p><ul><li><p><code>public RBTreeNode&lt;T&gt; FindMin(RBTreeNode&lt;T&gt; node)</code></p><ul><li><span>This is a simple function that finds the smallest RBTreeNode given the red black tree </span><strong><span>node.</span></strong></li></ul></li><li><p><code>private bool Find(T search, out RBTreeNode&lt;T&gt; result)</code></p><ul><li><span>This function looks to find the given search data.  The function should return true if found, and false if not.  If the item is not found, the out parameter should be set to null.  Be aware that you will need to use the </span><strong><span>CompareTo</span></strong><span> function since you are dealing with </span><strong><span>Data</span></strong><span> which is a generic type.  Also be aware that instead of looking for null as your stopping point, you should stop looking when you find </span><strong><span>NIL</span></strong><span>.</span></li></ul></li><li><p><code>public bool Find(T search, out T result)</code></p><ul><li><span>Simply uses the </span><strong><span>Find</span></strong><span> function above to find the given data in the red black tree. If the item is not found, the out parameter should be set to the default value of </span><strong><span>T</span></strong><span>. </span></li></ul></li><li><p><code>public void RotateLeft(RBTreeNode&lt;T&gt; pivot)</code></p><ul><li><span>This method will perform a single left rotation on the given red black tree node.  This is identical to the rotation described for </span><a href='http://people.cs.ksu.edu/~rhowell/DataStructures/trees/avl.html'><span>AVL Trees</span></a><span> in </span><a href='https://k-state.instructure.com/courses/92798/pages/lab-20-avl-trees?module_item_id=2133027'><span>Lab 20.</span></a><span> The only exception is that rotations are made under different conditions in red black trees, although for this function, you only need to worry about performing the rotation.  This rotation is slightly different compared to the one done in lab.  Here, you will have to move the pointers for the </span><strong><span>LeftChild</span></strong><span>, </span><strong><span>RightChild</span></strong><span>, and </span><strong><span>Parent</span></strong><span>.  Note that when looking for &quot;null&quot; values, you will use the traditional </span><strong><span>null</span></strong><span> when comparing to the </span><strong><span>Parent</span></strong><span> and </span><strong><span>NIL</span></strong><span> when comparing to the children.</span></li></ul></li></ul><p><span> </span><img src="left_rotation.png" referrerpolicy="no-referrer" alt="img"></p><ul><li><p><code>public void RotateRight(RBTreeNode&lt;T&gt; pivot)</code></p><ul><li><span>This is complete mirror to the </span><strong><span>RotateLeft</span></strong><span> function above.  That means ever point where you change the </span><strong><span>LeftChild</span></strong><span> you will instead change the </span><strong><span>RightChild</span></strong><span> and vice versa.</span></li></ul></li></ul><p><span> </span><img src="right_rotation.png" referrerpolicy="no-referrer" alt="img"></p><ul><li><p><code>public void Insert(T data)</code></p><ul><li><span>This is the base case for inserting into the red black tree.  If the </span><strong><span>Root</span></strong><span> is null, then this is the first node to be inserted into the tree.  Create a new </span><strong><span>RBTreeNode</span></strong><span> with the given data and </span><strong><span>NIL</span></strong><span> for both children.  Set the </span><strong><span>Color</span></strong><span> of the root to </span><strong><span>Black.</span></strong><span>   Otherwise, if the root&#39;s data is the same as the given data, throw a new </span><strong><span>InvalidOperationException</span></strong><span>.  If the data is valid for the root, call the </span><strong><span>Insert</span></strong><span> function below, passing a new </span><strong><span>RBTreeNode</span></strong><span> containing the data and </span><strong><span>NIL</span></strong><span> for both of its children.</span></li></ul></li><li><p><code>private void Insert(RBTreeNode&lt;T&gt; newNode)</code></p><ul><li><span>This method inserts the </span><strong><span>newNode</span></strong><span> in the red black tree.  This works identical to the normal binary tree insertion with a few exceptions.  You will need to move pointers instead of recreating the tree, and you will need to link the new node&#39;s </span><strong><span>Parent</span></strong><span> property.  Keep in mind that when looking for a leaf node, you should be comparing against </span><strong><span>NIL</span></strong><span>.  Once the node has been inserted, the tree may need to be repaired to maintain the properties of red black trees (described earlier in the assignment).  To do so, call the </span><strong><span>FixInsert</span></strong><span> function passing in the newly inserted node.</span></li></ul></li><li><p><code>private void FixInsert(RBTreeNode&lt;T&gt; node)</code></p><ul><li><p><span>This method fixes any case where the insertion of a node may have violated the properties of a valid red black tree.  The algorithm for this fix should loop while the node is not the root and its parent&#39;s color is red. </span></p><ul><li><p><span>If the node&#39;s parent is left child of my grandparent  (the parent of the node&#39;s parent), we have three cases that could  require adjusting the color of the nodes or rotating nodes in the tree. </span></p><ul><li><p><span>Case 1: The node&#39;s uncle (the node&#39;s grandparent&#39;s left child) is not </span><strong><span>NIL</span></strong><span> and is red.  For this case, we recolor the parent of node to be black, the uncle to be black, and the  grandparent to be red. Set the node to be equal to its grandparent.</span></p></li><li><p><span>If the node&#39;s uncle is black, we have two cases to  consider </span></p><ul><li><span>Case 2: The node is the right child of its parent.  We need to correct this so that the node is the left child of its parent.  Set the node to be equal to its parent, then rotate the node left.</span></li><li><span>Case 3:  The node is the left child of its parent.  Color the parent black, the    grandparent of the node red, and then rotate the grandparent of the node right.  Note that this case is executed regardless if case 2 is true.</span></li></ul></li></ul></li><li><p><span>The else case (the node&#39;s parent is the right child  of its grandparent) is an exact mirror (symmetric) to the three cases  above.</span></p></li></ul></li></ul></li><li><p><code>private void Replace(RBTreeNode&lt;T&gt; a, RBTreeNode&lt;T&gt; b)</code></p><ul><li><span>This method replaces node </span><strong><span>a</span></strong><span> with node </span><strong><span>b</span></strong><span>.  If the parent of </span><strong><span>a</span></strong><span> is null, then </span><strong><span>b</span></strong><span> becomes the new root.  Otherwise, if </span><strong><span>a</span></strong><span> is the left child of its parent, </span><strong><span>a&#39;</span></strong><span>s parent&#39;s left child becomes </span><strong><span>b</span></strong><span>.  Otherwise, </span><strong><span>a</span></strong><span>&#39;s parent&#39;s right child becomes </span><strong><span>b</span></strong><span>.  Finally, </span><strong><span>b</span></strong><span>&#39;s parent becomes </span><strong><span>a</span></strong><span>&#39;s parent.</span></li></ul></li><li><p><code>public bool Remove(T item)</code></p><ul><li><p><span>This method will delete the node that matches the given item from the tree.   This will operate very closely to a deletion operation in a regular binary tree, but with a few extra conditions.  First you will need to get a hold of the node that matches the item by using the </span><strong><span>Find</span></strong><span> method.  If nothing is found, return false.  Otherwise, we need to keep track of a few bits of information.  The node that was found will be referred to as </span><strong><span>r</span></strong><span>.  We also need to keep track of the color of the node we are replacing, </span><strong><span>oldColor</span></strong><span>.  This is initially the color of </span><strong><span>r</span></strong><span>.  We will also keep track of the node that will be moving into place of the node we are removing (</span><strong><span>r</span></strong><span>)…this will be referred to as the </span><strong><span>fix</span></strong><span> node.</span></p></li><li><p><span>Case 1:  If </span><strong><span>r</span></strong><span>’s left child is </span><strong><span>NIL</span></strong><span>, that means there is no left  child and we can simply replace </span><strong><span>r</span></strong><span>.  First set </span><strong><span>fix</span></strong><span> to </span><strong><span>r</span></strong><span>’s right  child, then </span><strong><span>Replace</span></strong><span> </span><strong><span>r</span></strong><span> with </span><strong><span>r</span></strong><span>’s right child.</span></p></li><li><p><span>Case 2: This case is symmetric to case 1.</span></p></li><li><p><span>Case 3/4: In this instance, </span><strong><span>r</span></strong><span> has two children, so we cannot simply replace </span><strong><span>r</span></strong><span> right away.  We must setup its </span><strong><span>successor</span></strong><span>.</span></p><ul><li><span>The </span><strong><span>successor</span></strong><span>   is the minimum (</span><strong><span>FindMin</span></strong><span>) node   of </span><strong><span>r</span></strong><span>’s right child.  Once found, the </span><strong><span>oldColor</span></strong><span> should be set to the </span><strong><span>successor’s</span></strong><span> color and </span><strong><span>fix</span></strong><span>   should be set to the </span><strong><span>successor’s</span></strong><span>   right child.</span></li><li><span>If the </span><strong><span>successor’s</span></strong><span>   parent is </span><strong><span>r</span></strong><span>, then </span><strong><span>fix</span></strong><span>’s parent should be set to   the </span><strong><span>successor</span></strong><span>.  Otherwise, we need to </span><strong><span>Replace</span></strong><span> the </span><strong><span>successor</span></strong><span> with its own right   child, set the </span><strong><span>successor’s</span></strong><span>   right child to be </span><strong><span>r</span></strong><span>’s right   child, and set the </span><strong><span>successor’s</span></strong><span>   right child’s parent to the </span><strong><span>successor.</span></strong></li><li><span>Finally, once the </span><strong><span>successor</span></strong><span> has been correctly setup, we can </span><strong><span>Replace</span></strong><span> </span><strong><span>r</span></strong><span> with the </span><strong><span>successor.</span></strong><span>  After it has been replaced, set the   left child of the </span><strong><span>successor</span></strong><span>   to be the left child of </span><strong><span>r</span></strong><span>   and the parent of the </span><strong><span>successor</span></strong><span>’s   left child to be the </span><strong><span>successor.</span></strong><span> Then   set the color of the </span><strong><span>successor</span></strong><span>   to be </span><strong><span>r</span></strong><span>’s color.</span></li></ul></li><li><p><span>If the </span><strong><span>oldColor</span></strong><span>  is black, that means the removal could have violated the properties of  the red black tree, therefore we must call </span><strong><span>FixDelete</span></strong><span> with the </span><strong><span>fix</span></strong><span>  node.</span></p></li></ul></li><li><p><code>private void FixDelete(RBTreeNode&lt;T&gt; current)</code></p><ul><li><p><span>This method is used to correct any violations made after deleting a node from the tree using the Remove function.  We have to continue to fix (loop while) the </span><strong><span>current</span></strong><span> node if it is not root and its color is black.  There is no need to fix the current node if it was red since it would not cause any violations of the tree (based on how we do the removal and insertion of nodes).</span></p></li><li><p><span>Scenario: The </span><strong><span>current</span></strong><span> node is the left child of its parent. There are four different cases:</span></p><ul><li><p><span>(if) Case 1: The sibling node of </span><strong><span>current</span></strong><span> is red.  We need  to recolor the sibling to black and change the </span><strong><span>current</span></strong><span> parent to red.   Then, perform a left rotation on the parent of </span><strong><span>current</span></strong><span>. </span></p></li><li><p><span>(if) Case 2:  Both  of the children of </span><strong><span>current</span></strong><span>’s  sibling are black.  We simply  recolor the sibling to be red and reset </span><strong><span>current</span></strong><span> to be its parent.</span></p></li><li><p><span>(else)</span></p><ul><li><span>Case 3: The right child of </span><strong><span>current</span></strong><span>’s sibling is black.    Recolor the left child the sibling to black and the color of the   sibling to red.  Then perform a   right rotation</span></li><li><span>Case 4: Executes regardless if case 3 occurs.  The sibling’s color now becomes the </span><strong><span>current</span></strong><span>’s parent’s color.  The parent of </span><strong><span>current</span></strong><span> and the right child of the sibling are recolored to   black.  Then a left rotation is   done on the parent of </span><strong><span>current</span></strong><span>.  Once the rotation is done, </span><strong><span>current</span></strong><span> should be set to the   root.</span></li></ul></li></ul></li><li><p><span>The second scenario is the exact mirror (symmetric) of the previous one.</span></p></li><li><p><span>At the end of the method, </span><strong><span>current</span></strong><span> needs to be recolored to black.</span></p></li></ul></li></ul><h3><a name="the-userinterface-class" class="md-header-anchor"></a><span>The UserInterface Class</span></h3><p><span>This class represents the code behind the UI.  The UI is responsible for loading names from files into a red black tree, displaying it, remove, and find functionality.</span></p><h4><a name="fields-n232" class="md-header-anchor"></a><span>Fields</span></h4><ul><li><p><code>private RBTree&lt;NameEntry&gt; _tree</code></p><ul><li><span>The red black tree that is currently loaded.</span></li></ul></li></ul><h4><a name="methods-n239" class="md-header-anchor"></a><span>Methods</span></h4><ul><li><p><code>public UserInterface()</code></p><ul><li><span>Default constructor.</span></li></ul></li><li><p><code>private RBTree&lt;NameEntry&gt; ReadFile(string fn)</code></p><ul><li><span>This method reads in a given file using a stream reader into a </span><strong><span>RBTree</span></strong><span> containing </span><strong><span>NameEntry</span></strong><span> objects as node data.  The files should be formed as name, frequency, and rank, each on their own line, just as we have done in lab.  Once done, return the newly created tree.</span></li></ul></li><li><p><code>private void uxButton_LoadNames_Click(object sender, EventArgs e)</code></p><ul><li><span>Using an </span><strong><span>OpenFileDialog</span></strong><span>, this click event handler reads a names file into the </span><strong><span>_tree</span></strong><span> field and creates shows the new tree (</span><code>new TreeForm(_tree, 10000).Show()</code><span>). If an error is thrown, it should be shown in a message box.</span></li></ul></li><li><p><code>private void uxButton_RemoveName_Click(object sender, EventArgs e)</code></p><ul><li><span>This click event handler attempts to remove a name that was typed into the UI from the tree.  You can use dummy information for the rank and frequency for creating a temporary </span><strong><span>NameEntry</span></strong><span> object to use as a parameter for passing to the Remove or Find methods in the tree class.  If the name was removed, you should show that fact in a message box and display the new tree in a new </span><strong><span>TreeForm</span></strong><span>.  Otherwise, show an appropriate message to the user indicating failure.</span></li></ul></li><li><p><code>private void uxButton_LookupName_Click(object sender, EventArgs e)</code></p><ul><li><span>This click event handler tries to find the name given by the UI in the tree.  If it is found, the frequency and rank should be loaded into the corresponding text boxes.  Otherwise, a message should be displayed and the text boxes for frequency and rank should be cleared.</span></li></ul></li></ul><h2><a name="testing-and-performance" class="md-header-anchor"></a><span>Testing and Performance</span></h2><p><span>There are a significant number of test cases that your code should pass. These are all included as part of the starting project.  In addition to the tests, your code should be able to load any of the given data files into a </span><strong><span>valid</span></strong><span> red black tree.  Likewise, the lookup and remove buttons should properly find and remove nodes from the tree.  You can use the model solution executable to check your trees.</span></p><h2><a name="submitting-your-assignment" class="md-header-anchor"></a><span>Submitting Your Assignment</span></h2><p><span>Be sure to </span><strong><span>refresh</span></strong><span> your Team Explorer, </span><strong><span>commit</span></strong><span> all your changes, then </span><strong><span>push</span></strong><span> your commits to your GitHub repository. Then submit the </span><em><span>entire URL</span></em><span> of the commit that you want graded. There is no need to submit a comment, as you will not have a completion code.</span></p><p><strong><span>Important:</span></strong><span> If the URL you submit does not contain the 40-hex-digit fingerprint of the commit you want graded, </span><strong><span>you will receive a 0</span></strong><span>, as this fingerprint is the only way we can verify that you completed your code prior to submitting your assignment. We will only grade the source code that is included in the commit that you submit. </span></p><h2><a name="a-note-on-the-executable-provided" class="md-header-anchor"></a><span>A Note on the Executable Provided</span></h2><p><span>The provided executable has been obfuscated to prevent decompiling to the original source code. Code decompiled from obfuscated code is difficult or impossible to understand. There exist deobfuscators that can make this decompiled code a bit more understandable, but it&#39;s still fairly obvious that it is obfuscated code. </span><strong><span>Any use of code decompiled and/or deobfuscated from the provided executable will be considered as cheating.</span></strong></p><p><span> </span></p></div>
+</body>
+</html>
