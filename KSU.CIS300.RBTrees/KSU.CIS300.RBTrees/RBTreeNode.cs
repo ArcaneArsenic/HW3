@@ -9,9 +9,9 @@ using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
 using KansasStateUniversity.TreeViewer2;
 
-public Color color { }
+//public Color color { }
 
-public class RBTreeNodeR
+public class RBTreeNode : ITree
 {
 	//main properties
 	public Color color { }
@@ -19,7 +19,7 @@ public class RBTreeNodeR
 	public RBTreeNode RightChild { }
 	public RBTreeNode Parent { }
 	public T Data { }
-	public object Root { get; }//return root
+	public object Root { get; set this}; }//return root
 	public Itree Children 
 	{ 
 		/*
@@ -40,6 +40,7 @@ public class RBTreeNodeR
 		Data = null;
 		LeftChild = null;
 		RightChild = null;
+		color = Black;
 
 	
 	}
@@ -47,7 +48,7 @@ public class RBTreeNodeR
 	/// <summary>
     /// sets color prop to black
     /// </summary>
-	public RBTreeNodeR()
+	public RBTreeNode()
 	{
 		color = color.Black; //change to use enumerator
 	}

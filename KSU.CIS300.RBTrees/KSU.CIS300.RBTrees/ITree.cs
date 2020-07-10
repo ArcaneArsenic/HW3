@@ -10,6 +10,6 @@ namespace KSU.CIS300.RBTrees
     //ITree Interface?
     interface ITree<T>
     {
-        public RBTree<T>
+        public RBTree<T> 
     }
 }

@@ -22,7 +22,8 @@ namespace KSU.CIS300.RBTrees
 
         //the red black tree that is currently loaded
         private RBTree<NameEntry> _tree;
-        public RBTree<> curr;
+        public RBTree<T> curr;
+
 
         /// <summary>
         /// uses StreamReader

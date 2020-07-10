@@ -5,17 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KansasStateUniversity.TreeViewer2;
+using System.Windows.Forms;
 
 namespace KSU.CIS300.RBTrees
 {
-    public static readonly RBTreeNode<T> NIL;
-    public RBTreeNode<T> Root { get; private set; }
-    object ITree.Root { get; }//return this?
-    public ITree[] children { get; } //return children
-    public bool IsEmpty { get; }//return null bool
+   
 
-    class RBTree<T> //IComparable: //edit
+    class RBTree<T> : ITree<T> //IComparable: //edit
     {
+        public static readonly RBTreeNode<T> NIL;
+        public RBTreeNode<T> Root { get; private set; }
+        object ITree.Root { get; }//return this?
+        public ITree[] children { get; } //return children
+        public bool IsEmpty { get; }//return null bool
+
         //implements ITree?
         /// <summary>
         /// 
@@ -146,6 +149,9 @@ namespace KSU.CIS300.RBTrees
         }
     }
 
+    internal class RBTreeNode<T>
+    {
+    }
 }
 
 
