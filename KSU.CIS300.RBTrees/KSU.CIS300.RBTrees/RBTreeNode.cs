@@ -14,35 +14,38 @@ using KansasStateUniversity.TreeViewer2;
 public class RBTreeNode : ITree
 {
 	//main properties
-	public Color color { }
+	public enum Color {Red, Black};
 	public RBTreeNode<T> LeftChild { }
 	public RBTreeNode RightChild { }
 	public RBTreeNode Parent { }
 	public T Data { }
-	public object Root { get; set this}; }//return root
-	public Itree Children 
+	public object Root { get ; set; }//return root
+	public ITree Children 
 	{ 
-		/*
-		get; 
-		RBTreeNode<T>[] a = new RBTreeNode<T>[2];
-		a[1] = Root.LeftChild;
-		a[2] = Root.RightChild;
+		get => new RBTreeNode<T>[2]; 
 
-		return a<T>[];
-		*/
+		set; 
 	}
 
-	public bool IsEmpty { get; }
+	public bool IsEmpty 
+	{ 
+		get => Data.Equals(T); 
+		set; 
+	}
 
 
 	public RBTreeNode(ThreadStaticAttribute data, RBTreeNode<T> left, RBTreeNodeR<T> right)
 	{
-		Data = null;
-		LeftChild = null;
-		RightChild = null;
-		color = Black;
+		Data = data;
+		LeftChild = left;
+		RightChild = right;
 
-	
+		//color = Black;
+		Root = this;
+		Children.set(left);
+		Children.set(right);
+
+
 	}
 
 	/// <summary>
@@ -50,12 +53,13 @@ public class RBTreeNode : ITree
     /// </summary>
 	public RBTreeNode()
 	{
-		color = color.Black; //change to use enumerator
+		color = Black; //change to use enumerator
 	}
 
     public override string ToString()
     {
-        return Data.ToString(); //format Color: Data
+		string newStr = Data.ToString();
+        return newStr + " : " + color; //format Color: Data
     }
 
 }
