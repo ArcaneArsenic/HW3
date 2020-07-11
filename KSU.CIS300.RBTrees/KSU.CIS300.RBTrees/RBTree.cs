@@ -11,13 +11,15 @@ namespace KSU.CIS300.RBTrees
 {
    
 
-    class RBTree<T> : ITree<T> //IComparable: //edit
+    class RBTree<T> : ITree //IComparable: //edit
     {
         public static readonly RBTreeNode<T> NIL;
         public RBTreeNode<T> Root { get; private set; }
         object ITree.Root { get; }//return this?
         public ITree[] children { get; } //return children
         public bool IsEmpty { get; }//return null bool
+
+        public ITree[] Children => throw new NotImplementedException();
 
         //implements ITree?
         /// <summary>
@@ -31,10 +33,11 @@ namespace KSU.CIS300.RBTrees
             while (node != null)
             {
                 if (node.LeftChild == null) { return node; }
-                else { node = node.LeftChild;}
+                else { node = (RBTreeNode<T>)node.LeftChild;}
+                node = FindMin(node);
 
             }
-            
+            return node;
         
         }
 
@@ -48,8 +51,11 @@ namespace KSU.CIS300.RBTrees
         /// <param name="result"></param>
         /// <returns></returns>
         private bool Find(T search, out RBTreeNode<T> result)
-        { 
-            //binary search
+        {
+            RBTree<T> x = new RBTrees.RBTree<T>();
+            x = search.Data;
+            //if(x.Contains(search))
+            //review binary search methods
         }
 
         /// <summary>
@@ -83,6 +89,22 @@ namespace KSU.CIS300.RBTrees
         public void RotateRight(RBTreeNodea<T> pivot)
         {
 
+
+        }
+
+        /// <summary>
+        /// Builds the result of performing a single rotate right on the binary tree
+        /// described by the given root, left child, and right child.
+        /// </summary>
+        /// <param name="root">The data stored in the root of the original tree.</param>
+        /// <param name="left">The left child of the root of the original tree.</param>
+        /// <param name="right">The right child of the root of the original tree.</param>
+        /// <returns>The result of performing a single rotate right on the tree described
+        /// by the parameters.</returns>
+        private static RBTreeNode<T> SingleRotateRight(T root, RBTreeNode<T> left, RBTreeNode<T> right)
+        {
+            RBTreeNode<T> newRight = new RBTreeNode<T>(root, left.RightChild, right);
+            return new RBTreeNode<T>(left.Data, left.LeftChild, newRight);
         }
 
         /// <summary>
@@ -149,8 +171,26 @@ namespace KSU.CIS300.RBTrees
         }
     }
 
-    internal class RBTreeNode<T>
+    internal class RBTreeNode<T> : IComparable<T>
     {
+        private T root;
+        private RBTreeNode<T> right;
+
+        public RBTreeNode(T root, object rightChild, RBTreeNode<T> right)
+        {
+            this.root = root;
+            RightChild = rightChild;
+            this.right = right;
+        }
+
+        public object LeftChild { get; internal set; }
+        public object RightChild { get; internal set; }
+        public T Data { get; internal set; }
+
+        public int CompareTo(T other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
